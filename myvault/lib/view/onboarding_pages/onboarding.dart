@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myvault/model_view/onboarding_controller.dart';
 import 'package:myvault/utils/colors.dart';
+import 'package:myvault/view/login_pages/login_page.dart';
+import 'package:myvault/view/signup_pages/signup_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -60,7 +62,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       Align(
                         alignment: Alignment.topRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignupPage(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'Skip',
                             style: GoogleFonts.inter(
@@ -151,7 +160,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignupPage(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.mainBackground,
                           foregroundColor: AppColors.minBackground,
@@ -169,16 +185,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                       SizedBox(height: 16),
 
-                      SizedBox(
-                        width: 53,
-                        height: 19,
-                        child: Text(
-                          'Sign In',
-                          style: GoogleFonts.inter(
-                            color: AppColors.mainBackground,
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: SizedBox(
+                          width: 53,
+                          height: 19,
+                          child: Text(
+                            'Sign In',
+                            style: GoogleFonts.inter(
+                              color: AppColors.mainBackground,
+                              textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
