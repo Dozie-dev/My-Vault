@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myvault/utils/app_icons.dart';
 import 'package:myvault/utils/colors.dart';
+import 'package:myvault/view/login_pages/login_page.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpPage extends StatefulWidget {
@@ -51,10 +53,12 @@ class _OtpPageState extends State<OtpPage> {
                     height: 8,
                     width: 165,
                     decoration: BoxDecoration(
-                      color: AppColors.ashcont,
+                      color: AppColors.greencont,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  SizedBox(width: 8),
+                  Image.asset(AppIcons.check),
                 ],
               ),
 
@@ -100,15 +104,21 @@ class _OtpPageState extends State<OtpPage> {
 
               SizedBox(height: 16),
 
-              Text(
-                'Resend Code',
-                style: GoogleFonts.inter(
-                  textStyle: TextStyle(
-                    color: AppColors.text2,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+              Row(
+                children: [
+                  Image.asset(AppIcons.loading),
+                  SizedBox(width: 8),
+                  Text(
+                    'Resend Code',
+                    style: GoogleFonts.inter(
+                      textStyle: TextStyle(
+                        color: AppColors.text2,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
 
               SizedBox(height: 100),
@@ -119,7 +129,12 @@ class _OtpPageState extends State<OtpPage> {
                   foregroundColor: AppColors.minBackground,
                   minimumSize: Size(369, 47),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
                 child: Text(
                   'Verify OTP',
                   style: GoogleFonts.inter(

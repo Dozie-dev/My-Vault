@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myvault/utils/app_icons.dart';
 import 'package:myvault/utils/colors.dart';
 import 'package:myvault/view/signup_pages/otp_page.dart';
 
@@ -314,6 +315,10 @@ class _SignupPageState extends State<SignupPage> {
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 12,
+                              ),
+                              suffixIcon: GestureDetector(
+                                onTap: () {},
+                                child: Image.asset(AppIcons.password1),
                               ),
                             ),
                             validator: (value) {
